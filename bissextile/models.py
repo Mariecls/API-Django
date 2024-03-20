@@ -6,6 +6,3 @@ class CallHistory(models.Model):
     result = models.TextField()
     call_date = models.DateTimeField()
 
-    # class Meta:
-    #     app_label = 'bissextile'
-
