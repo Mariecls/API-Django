@@ -5,14 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7fb3dc6f-f8d9-41f4-92c2-cf8dd16a91a0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bissextile/static/js/history.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bissextile/static/js/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bissextile/static/js/range.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bissextile/templates/history.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bissextile/templates/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bissextile/templates/range.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bissextile/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/bissextile/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bissextile/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/bissextile/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bissextile/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/bissextile/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bissextile/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/bissextile/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,18 +41,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/marie/projects/frontend-project&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/home/marie/projects/django-web-app",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$USER_HOME$/projects" />
+      <recent name="$PROJECT_DIR$/bissextile" />
       <recent name="$PROJECT_DIR$/bissextile/static/js" />
       <recent name="$PROJECT_DIR$/bissextile/templates" />
       <recent name="$PROJECT_DIR$" />
