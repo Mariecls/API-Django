@@ -32,7 +32,8 @@ def leap_years_in_range(request, start_year, end_year):
         call_date=current_date
     )
 
-    response = JsonResponse({"leap_years": leap_years_list})
+    response_data = {"years": leap_years_list}
+    response = JsonResponse(response_data)
 
     response["Access-Control-Allow-Origin"] = "*"
     response["Access-Control-Allow-Methods"] = "GET"
@@ -40,21 +41,21 @@ def leap_years_in_range(request, start_year, end_year):
     return response
 
 
+
 def call_history(request):
     history = CallHistory.objects.all().order_by('-call_date')
 
     history_data = []
     for entry in history:
-        result_display = entry.result if isinstance(entry.result,
-                                                    bool) else 'vrai' if entry.result == 'True' else entry.result
+        result_display = entry.result if isinstance(entry.result, bool) else 'vrai' if entry.result == 'True' else entry.result
         entry_data = {
+            'date': entry.call_date.strftime('%Y-%m-%d %H:%M:%S UTC'),
             'endpoint': entry.endpoint,
-            'result': result_display,
-            'call_date': entry.call_date.strftime('%Y-%m-%d %H:%M:%S UTC')
+            'result': result_display
         }
         history_data.append(entry_data)
 
-    response = JsonResponse({"history": history_data})
+    response = JsonResponse(history_data, safe=False)
 
     response["Access-Control-Allow-Origin"] = "*"
     response["Access-Control-Allow-Methods"] = "GET"
