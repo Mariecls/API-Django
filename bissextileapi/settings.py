@@ -51,7 +51,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'bissextileapi.urls'
+ROOT_URLCONF = 'bissextile.urls'
 
 TEMPLATES = [
     {
