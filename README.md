@@ -9,7 +9,7 @@
 - Django : 3.2.5
   
 ## Installation
-Pour cloner l’API depuis GITHUB il faut utiliser pip avec  ```  git clone https://github.com/Mariecls/API-Django.git ```
+Pour cloner l’API depuis GITHUB il faut utiliser  ```  git clone https://github.com/Mariecls/API-Django.git ```
 
 Créez un environnement virtuel pour isoler les dépendances du projet avec la commande : ``` python -m venv venv  ```
 
