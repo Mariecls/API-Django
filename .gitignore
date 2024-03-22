@@ -114,4 +114,14 @@ fabric.properties
 # https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij
 .idea/**/azureSettings.xml
 
+# Django
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+
+# PyCharm
+.idea/
+
 # End of https://www.toptal.com/developers/gitignore/api/pycharm
