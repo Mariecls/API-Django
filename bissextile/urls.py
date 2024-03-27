@@ -14,13 +14,11 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
 from django.urls import path
 from bissextile.views import is_leap_year, leap_years_in_range , call_history
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('is_leap_year/<int:year>/', is_leap_year),
     path('leap_years_in_range/<int:start_year>/<int:end_year>/', leap_years_in_range),
     path('history/', call_history),

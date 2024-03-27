@@ -16,7 +16,7 @@ def is_leap_year(request, year):
     response = JsonResponse({"is_leap_year": is_leap_year_result})
 
     response["Access-Control-Allow-Origin"] = "*"
-    response["Access-Control-Allow-Methods"] = "GET"
+    response["Access-Control-Allow-Methods"] = "POST"
 
     return response
 
