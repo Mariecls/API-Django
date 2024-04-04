@@ -4,6 +4,13 @@ from bissextile.models import CallHistory
 
 
 def is_leap_year(request, year):
+    if request.method == "OPTIONS":
+        response = JsonResponse({})
+        response["Access-Control-Allow-Origin"] = "*"
+        response["Access-Control-Allow-Methods"] = "POST"
+        response["Access-Control-Allow-Headers"] = "Content-Type"
+        return response
+
     is_leap_year_result = (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0)
     current_date = timezone.now()
 
@@ -16,10 +23,7 @@ def is_leap_year(request, year):
     response = JsonResponse({"is_leap_year": is_leap_year_result})
 
     response["Access-Control-Allow-Origin"] = "*"
-    response["Access-Control-Allow-Methods"] = "POST"
-
     return response
-
 
 def leap_years_in_range(request, start_year, end_year):
     leap_years_list = [year for year in range(start_year, end_year + 1) if
