@@ -11,6 +11,11 @@ def is_leap_year(request, year):
         response["Access-Control-Allow-Headers"] = "Content-Type"
         return response
 
+    try:
+        year = int(year)
+    except ValueError:
+        return JsonResponse({"error": "L'année doit être un nombre entier."}, status=400)
+
     is_leap_year_result = (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0)
     current_date = timezone.now()
 
@@ -25,7 +30,18 @@ def is_leap_year(request, year):
     response["Access-Control-Allow-Origin"] = "*"
     return response
 
+
 def leap_years_in_range(request, start_year, end_year):
+    try:
+        start_year = int(start_year)
+        end_year = int(end_year)
+    except ValueError:
+        return JsonResponse({"error": "Les années doivent être des nombres entiers."}, status=400)
+
+    if start_year > end_year:
+        return JsonResponse({"error": "L'année de début doit être inférieure ou égale à l'année de fin."}, status=400)
+
+
     leap_years_list = [year for year in range(start_year, end_year + 1) if
                        (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0)]
     current_date = timezone.now()
@@ -43,7 +59,6 @@ def leap_years_in_range(request, start_year, end_year):
     response["Access-Control-Allow-Methods"] = "GET"
 
     return response
-
 
 
 def call_history(request):
