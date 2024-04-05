@@ -19,8 +19,8 @@ from bissextile.views import is_leap_year, leap_years_in_range , call_history
 
 
 urlpatterns = [
-    path('is_leap_year/<int:year>/', is_leap_year),
-    path('leap_years_in_range/<int:start_year>/<int:end_year>/', leap_years_in_range),
+    path('is_leap_year/<str:year>/', is_leap_year),
+    path('leap_years_in_range/<str:start_year>/<str:end_year>/', leap_years_in_range),
     path('history/', call_history),
 ]
 

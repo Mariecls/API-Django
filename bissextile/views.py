@@ -1,6 +1,6 @@
 from django.http import JsonResponse
 from django.utils import timezone
-from bissextile.models import CallHistory
+from .models import CallHistory
 
 
 def is_leap_year(request, year):
@@ -14,22 +14,20 @@ def is_leap_year(request, year):
     try:
         year = int(year)
     except ValueError:
-        return JsonResponse({"error": "L'année doit être un nombre entier."}, status=400)
+        error_message = "L'année doit être un nombre entier."
+        CallHistory.objects.create(endpoint='is_leap_year', result=error_message, call_date=timezone.now())
+        return JsonResponse({"error": error_message}, status=400)
 
-    is_leap_year_result = (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0)
-    current_date = timezone.now()
-
-    CallHistory.objects.create(
-        endpoint='is_leap_year',
-        result=is_leap_year_result,
-        call_date=current_date
-    )
-
-    response = JsonResponse({"is_leap_year": is_leap_year_result})
-
-    response["Access-Control-Allow-Origin"] = "*"
-    return response
-
+    try:
+        is_leap_year_result = (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0)
+        CallHistory.objects.create(endpoint='is_leap_year', result=is_leap_year_result, call_date=timezone.now())
+        response = JsonResponse({"is_leap_year": is_leap_year_result})
+        response["Access-Control-Allow-Origin"] = "*"
+        return response
+    except Exception as e:
+        error_message = f"Une erreur est survenue : {str(e)}"
+        CallHistory.objects.create(endpoint='is_leap_year', result=error_message, call_date=timezone.now())
+        return JsonResponse({"error": error_message}, status=400)
 
 def leap_years_in_range(request, start_year, end_year):
     try:
@@ -38,9 +36,8 @@ def leap_years_in_range(request, start_year, end_year):
     except ValueError:
         return JsonResponse({"error": "Les années doivent être des nombres entiers."}, status=400)
 
-    if start_year > end_year:
-        return JsonResponse({"error": "L'année de début doit être inférieure ou égale à l'année de fin."}, status=400)
-
+    if start_year >= end_year:
+        return JsonResponse({"error": "L'année de début doit être strictement inférieure à l'année de fin."}, status=400)
 
     leap_years_list = [year for year in range(start_year, end_year + 1) if
                        (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0)]
@@ -59,7 +56,6 @@ def leap_years_in_range(request, start_year, end_year):
     response["Access-Control-Allow-Methods"] = "GET"
 
     return response
-
 
 def call_history(request):
     history = CallHistory.objects.all().order_by('-call_date')
